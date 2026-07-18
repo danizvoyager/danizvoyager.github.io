@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Academic Resource Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f3f4f6;
+    }
+    header, footer {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header nav a {
+      color: #e5e7eb;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    header nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    section {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      margin: 0.25rem 0;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: #4b5563;
+      margin-bottom: 1.25rem;
+    }
+    .hero-running {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1e40af;
+    }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .resource-card {
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.25rem 1.5rem;
+      background: #f9fafb;
+    }
+    .resource-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+    .resource-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .resource-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.75rem;
+    }
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .cv-block-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .cv-text {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .contact-text {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 480px;
+    }
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #374151;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font: inherit;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid #1d4ed8;
+      outline-offset: 1px;
+      border-color: transparent;
+    }
+    footer {
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    footer .brand {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+    footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      header, footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ACADEMIC HUB</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#profile">Academic Profile</a>
+      <a href="#resources">Resources</a>
+      <a href="#cv">Curriculum Vitae</a>
+      <a href="#contact">Inquiries</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div>
+        <h1>Academic Resource Hub</h1>
+        <p class="hero-tagline">
+          Comprehensive lecture notes and scholarly research materials for students and educators.
+        </p>
+        <a class="btn" href="#resources">View Notes</a>
+        <p class="hero-running">
+          Lecture Notes • Research Papers • CVs • Beamers • Academic Resources
+        </p>
+      </div>
+      <div class="hero-image">
+        Academic Resources<br />Notes · Papers · Slides
+      </div>
+    </section>
+
+    <!-- Academic Profile -->
+    <section id="profile">
+      <h2>Research Profile</h2>
+      <p><strong>Research Interests</strong></p>
+      <p>
+        My research focuses on the intersection of computer science, data analysis,
+        and educational technology.
+      </p>
+      <p style="margin-top:1rem;"><strong>Academic Background</strong></p>
+      <p>
+        With a strong foundation in theoretical computer science and applied machine learning,
+        I develop tools and resources that support effective teaching and learning.
+      </p>
+    </section>
+
+    <!-- Featured Resources -->
+    <section id="resources">
+      <h2>Featured Resources</h2>
+      <p>
+        Access our latest lecture notes and downloadable materials to support your academic journey.
+      </p>
+
+      <div class="resources-grid">
+        <article class="resource-card">
+          <div class="resource-number">1</div>
+          <div class="resource-title">Advanced Calculus Notes</div>
+          <p class="resource-desc">
+            A comprehensive guide to multivariable calculus and advanced analysis topics.
+          </p>
+          <a class="btn" href="#" download>Download PDF</a>
+        </article>
+
+        <article class="resource-card">
+          <div class="resource-number">2</div>
+          <div class="resource-title">Linear Algebra Beamer</div>
+          <p class="resource-desc">
+            Interactive slides covering vector spaces, eigenvalues, eigenvectors, and more.
+          </p>
+          <a class="btn" href="#" download>Download PDF</a>
+        </article>
+
+        <article class="resource-card">
+          <div class="resource-number">3</div>
+          <div class="resource-title">Research Methodology</div>
+          <p class="resource-desc">
+            Practical guide to experimental design, data analysis, and academic writing.
+          </p>
+          <a class="btn" href="#" download>Download PDF</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Curriculum Vitae -->
+    <section id="cv">
+      <h2>Professional Credentials</h2>
+      <div class="cv-grid">
+        <div>
+          <p class="cv-block-title">Academic Degrees</p>
+          <p class="cv-text">
+            PhD in Computer Science<br />
+            MSc in Artificial Intelligence<br />
+            BSc in Computer Science
+          </p>
+        </div>
+        <div>
+          <p class="cv-block-title">Academic Honors</p>
+          <p class="cv-text">
+            Dean's List, 2021<br />
+            Research Excellence Award<br />
+            Fellowship in Educational Technology
+          </p>
+        </div>
+        <div>
+          <p class="cv-block-title">Professional Experience</p>
+          <p class="cv-text">
+            Senior Researcher, Cambridge<br />
+            Lecturer, MIT OpenCourse-style programs<br />
+            Curriculum Developer, Academic Resource Hub
+          </p>
+        </div>
+      </div>
+      <a class="btn" href="#" download>Download Full CV</a>
+    </section>
+
+    <!-- Inquiries -->
+    <section id="contact">
+      <h2>Inquiries</h2>
+      <p class="contact-text">
+        For academic collaborations, lecture note requests, or research inquiries, please get in touch using the form below.
+      </p>
+      <form>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand">ACADEMIC HUB</div>
+    <div>© 2026 Academic Resource Hub. All rights reserved.</div>
+    <div><a href="mailto:profile@academicresourcehub.com">profile@academicresourcehub.com</a></div>
+  </footer>
+</body>
+</html>
